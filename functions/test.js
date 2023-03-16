@@ -1,3 +1,6 @@
 exports.handler = async () => {
-  return 'Server is Working! - Test file';
+  return {
+    statusCode: '200',
+    body: 'Server is Working! - Test file',
+  };
 };
