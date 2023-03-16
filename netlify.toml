@@ -2,11 +2,11 @@
 functions = "./functions"
 
 [[redirects]]
-from = "./popular-movies/*"
+from = "/popular-movies/*"
 to = "/.netlify/functions/popularMovies"
 
 [[redirects]]
-from = "./search-movies/*"
+from = "/search-movies/*"
 to = "/.netlify/functions/searchMovies"
 
 [[redirects]]
