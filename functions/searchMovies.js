@@ -3,6 +3,7 @@ const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 
 exports.handler = async (event) => {
   try {
+    console.log('OK START');
     const { queryStringParameters } = event;
     const parameters = Object.entries(queryStringParameters)
       .map(([key, value]) => `${key}=${value}`)
@@ -13,6 +14,7 @@ exports.handler = async (event) => {
     const response = await fetch(URI);
     const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
+    console.log('BODY', body);
 
     headers['Access-Control-Allow-Origin'] = '*';
 
