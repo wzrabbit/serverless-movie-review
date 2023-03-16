@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     const parameters = Object.entries(queryStringParameters)
       .map(([key, value]) => `${key}=${value}`)
       .join('&')
-      .concat(`&key=${process.env.API_KEY}`);
+      .concat(`&api_key=${process.env.API_KEY}`);
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
     const response = await fetch(URI);
