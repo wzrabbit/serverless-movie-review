@@ -1,0 +1,24 @@
+{
+  "name": "serverless-movie-review",
+  "version": "0.0.1",
+  "description": "API 키를 숨기기 위한 Serverless 서버 만들기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wzrabbit/serverless-movie-review.git"
+  },
+  "author": "wzrabbit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wzrabbit/serverless-movie-review/issues"
+  },
+  "homepage": "https://github.com/wzrabbit/serverless-movie-review#readme",
+  "dependencies": {
+    "encoding": "^0.1.13",
+    "fetch": "^1.1.0",
+    "querystring": "^0.2.1"
+  }
+}
