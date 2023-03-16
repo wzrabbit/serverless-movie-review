@@ -3,12 +3,13 @@ const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 
 exports.handler = async (event) => {
   try {
-    console.log('OK START');
     const { queryStringParameters } = event;
     const apiKey = process.env.api_key.replace('API_KEY', 'api_key');
-    console.log('My api key is: ', apiKey);
 
-    const parameters = Object.keys(queryStringParameters).join('&');
+    const parameters =
+      Object.entries(queryStringParameters)
+        .map(([key, value]) => `${key}=${value}`)
+        .join('&') + apiKey;
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
     console.log('URI: ' + URI);
