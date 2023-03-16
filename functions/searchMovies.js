@@ -1,4 +1,4 @@
-const { default: fetch } = await import('node-fetch');
+const fetch = require('node-fetch');
 const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 
 exports.handler = async (event) => {
