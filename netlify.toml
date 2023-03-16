@@ -1,0 +1,14 @@
+[build]
+functions = "./functions"
+
+[[redirects]]
+from = "/api/popular-movies/*"
+to = "/.netlify/functions/popularMovies"
+
+[[redirects]]
+from = "/api/search-movies/*"
+to = "/.netlify/functions/searchMovies"
+
+[[redirects]]
+from = "/"
+to = "/.netlify/index.html"
