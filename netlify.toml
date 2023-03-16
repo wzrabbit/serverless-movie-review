@@ -12,3 +12,7 @@ to = "/.netlify/functions/searchMovies"
 [[redirects]]
 from = "/"
 to = "/.netlify/index.html"
+
+[[redirects]]
+from = "/test"
+to = "/.netlify/functions/test"
