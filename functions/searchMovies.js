@@ -4,14 +4,16 @@ const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 exports.handler = async (event) => {
   try {
     const { queryStringParameters } = event;
-    const apiKey = process.env.api_key.replace('API_KEY', 'api_key');
+    const apiKey = process.env.api_key.replace('API_KEY', '');
 
-    const parameters =
-      Object.entries(queryStringParameters)
-        .map(([key, value]) => `${key}=${value}`)
-        .join('&') + apiKey;
+    const parameterEntries = Object.entries(queryStringParameters);
+    parameters.push(['api_key', apiKey]);
 
-    const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
+    const queryString = parameterEntries
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+
+    const URI = `${SEARCH_MOVIES_ENDPOINT}?${queryString}`;
     console.log('URI: ' + URI);
     const response = await fetch(URI);
     const { statusCode, statusText, ok, headers } = response;
