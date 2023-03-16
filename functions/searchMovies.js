@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     const apiKey = process.env.api_key.replace('API_KEY', '');
 
     const parameterEntries = Object.entries(queryStringParameters);
-    parameters.push(['api_key', apiKey]);
+    parameterEntries.push(['api_key', apiKey]);
 
     const queryString = parameterEntries
       .map(([key, value]) => `${key}=${value}`)
