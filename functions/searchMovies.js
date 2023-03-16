@@ -5,8 +5,10 @@ exports.handler = async (event) => {
   try {
     console.log('OK START');
     const { queryStringParameters } = event;
-    const parameters =
-      Object.keys(queryStringParameters).join('&') + process.env.api_key;
+    const apiKey = process.env.api_key.replace('API_KEY', 'api_key');
+    console.log('My api key is: ', apiKey);
+
+    const parameters = Object.keys(queryStringParameters).join('&');
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
     console.log('URI: ' + URI);
