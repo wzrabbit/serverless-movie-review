@@ -11,6 +11,7 @@ exports.handler = async (event) => {
       process.env.API_KEY;
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
+    console.log('URI: ' + URI);
     const response = await fetch(URI);
     const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
