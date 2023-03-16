@@ -15,20 +15,28 @@ exports.handler = async (event) => {
 
     const URI = `${POPULAR_MOVIES_ENDPOINT}?${queryString}`;
     const response = await fetch(URI);
-    const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
+
+    if (!response.ok) {
+      return {
+        statusCode: response.statusCode,
+        success: false,
+        body,
+      };
+    }
 
     headers['Access-Control-Allow-Origin'] = '*';
 
     return {
       statusCode: 200,
+      success: true,
       body,
     };
   } catch (error) {
     return {
       statusCode: 404,
       statusText: error.message,
-      ok: false,
+      success: false,
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
