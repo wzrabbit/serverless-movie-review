@@ -5,10 +5,10 @@ exports.handler = async (event) => {
   try {
     console.log('OK START');
     const { queryStringParameters } = event;
-    const parameters = Object.entries(queryStringParameters)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')
-      .concat(`&api_key=${process.env.API_KEY}`);
+    const parameters =
+      Object.keys(queryStringParameters).join('&') +
+      '&api_key=' +
+      process.env.API_KEY;
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${parameters}`;
     const response = await fetch(URI);
