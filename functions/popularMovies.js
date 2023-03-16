@@ -1,4 +1,4 @@
-const fetch = require('node-fetch').default;
+const { default: fetch } = await import('node-fetch');
 const POPULAR_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular';
 
 exports.handler = async (event) => {
