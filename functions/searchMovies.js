@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch').default;
 const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 
 exports.handler = async (event) => {
