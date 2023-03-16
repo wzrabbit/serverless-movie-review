@@ -14,7 +14,7 @@ exports.handler = async (event) => {
     const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
 
-    headers['Access-Control-Allow-Origin'] = process.env.HOST;
+    headers['Access-Control-Allow-Origin'] = '*';
 
     return {
       statusCode,
