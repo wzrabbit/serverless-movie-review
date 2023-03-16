@@ -14,12 +14,11 @@ exports.handler = async (event) => {
       .join('&');
 
     const URI = `${SEARCH_MOVIES_ENDPOINT}?${queryString}`;
-    console.log('URI: ' + URI);
+
     const response = await fetch(URI);
     const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
-    console.log('BODY', body);
-    console.log(statusCode, statusText, ok, headers);
+
     headers['Access-Control-Allow-Origin'] = '*';
 
     return {

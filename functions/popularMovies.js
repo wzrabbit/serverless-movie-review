@@ -4,12 +4,16 @@ const POPULAR_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular';
 exports.handler = async (event) => {
   try {
     const { queryStringParameters } = event;
-    const parameters = Object.entries(queryStringParameters)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')
-      .concat(`&key=${process.env.API_KEY}`);
+    const apiKey = process.env.api_key.replace('API_KEY=', '');
 
-    const URI = `${POPULAR_MOVIES_ENDPOINT}?${parameters}`;
+    const parameterEntries = Object.entries(queryStringParameters);
+    parameterEntries.push(['api_key', apiKey]);
+
+    const queryString = parameterEntries
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+
+    const URI = `${POPULAR_MOVIES_ENDPOINT}?${queryString}`;
     const response = await fetch(URI);
     const { statusCode, statusText, ok, headers } = response;
     const body = JSON.stringify(await response.json());
@@ -17,10 +21,7 @@ exports.handler = async (event) => {
     headers['Access-Control-Allow-Origin'] = '*';
 
     return {
-      statusCode,
-      statusText,
-      ok,
-      headers,
+      statusCode: 200,
       body,
     };
   } catch (error) {
