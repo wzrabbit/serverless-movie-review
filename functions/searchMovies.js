@@ -22,6 +22,7 @@ exports.handler = async (event) => {
         statusCode: response.statusCode,
         success: false,
         body,
+        headers: {},
       };
     }
 
@@ -34,6 +35,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       success: true,
       body,
+      headers: {},
     };
   } catch (error) {
     return {
