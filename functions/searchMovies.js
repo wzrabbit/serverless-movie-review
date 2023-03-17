@@ -22,7 +22,9 @@ exports.handler = async (event) => {
         statusCode: response.statusCode,
         success: false,
         body,
-        headers: {},
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
       };
     }
 
@@ -35,7 +37,9 @@ exports.handler = async (event) => {
       statusCode: 200,
       success: true,
       body,
-      headers: {},
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     };
   } catch (error) {
     return {
