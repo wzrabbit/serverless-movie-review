@@ -21,7 +21,7 @@ exports.handler = async (event) => {
       console.log('response was not ok');
       console.log(response);
       return {
-        status: response.status,
+        statusCode: response.status,
         success: false,
         body,
         headers: {
@@ -36,7 +36,7 @@ exports.handler = async (event) => {
       'Content-Type, Authorization';
 
     return {
-      status: 200,
+      statusCode: 200,
       success: true,
       body,
       headers: {
@@ -46,7 +46,7 @@ exports.handler = async (event) => {
   } catch (error) {
     console.log('Exception!', error);
     return {
-      status: 404,
+      statusCode: 404,
       statusText: error.message,
       success: false,
       headers: {
