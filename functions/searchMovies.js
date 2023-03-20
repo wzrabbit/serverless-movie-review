@@ -21,7 +21,7 @@ exports.handler = async (event) => {
       console.log('response was not ok');
       console.log(response);
       return {
-        statusCode: response.statusCode,
+        statusCode: response.status,
         success: false,
         body,
         headers: {
