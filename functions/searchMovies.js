@@ -18,6 +18,8 @@ exports.handler = async (event) => {
     const body = JSON.stringify(await response.json());
 
     if (!response.ok) {
+      console.log('response was not ok');
+      console.log(response);
       return {
         statusCode: response.statusCode,
         success: false,
