@@ -42,6 +42,7 @@ exports.handler = async (event) => {
       },
     };
   } catch (error) {
+    console.log('Exception!', error);
     return {
       statusCode: 404,
       statusText: error.message,
