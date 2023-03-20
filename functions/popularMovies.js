@@ -19,7 +19,7 @@ exports.handler = async (event) => {
 
     if (!response.ok) {
       return {
-        statusCode: response.statusCode,
+        status: response.status,
         success: false,
         body,
         headers: {
@@ -34,7 +34,7 @@ exports.handler = async (event) => {
       'Content-Type, Authorization';
 
     return {
-      statusCode: 200,
+      status: 200,
       success: true,
       body,
       headers: {
@@ -43,7 +43,7 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     return {
-      statusCode: 404,
+      status: 404,
       statusText: error.message,
       success: false,
       headers: {
