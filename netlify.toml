@@ -10,6 +10,10 @@ from = "/search-movies/*"
 to = "/.netlify/functions/searchMovies"
 
 [[redirects]]
+from = "/movie-genres/*"
+to = "/.netlify/functions/movieGenres"
+
+[[redirects]]
 from = "/"
 to = "/.netlify/index.html"
 
