@@ -17,6 +17,12 @@ exports.handler = async (event) => {
     const response = await fetch(URI);
     const body = JSON.stringify(await response.json());
 
+    response.headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+
     if (!response.ok) {
       return {
         statusCode: response.status,
@@ -27,11 +33,6 @@ exports.handler = async (event) => {
         },
       };
     }
-
-    response.headers['Access-Control-Allow-Origin'] = '*';
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST';
-    response.headers['Access-Control-Allow-Headers'] =
-      'Content-Type, Authorization';
 
     return {
       statusCode: 200,
