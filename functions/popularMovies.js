@@ -19,7 +19,7 @@ exports.handler = async (event) => {
 
     response.headers = {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Methods': 'GET',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     };
 
@@ -28,9 +28,7 @@ exports.handler = async (event) => {
         statusCode: response.status,
         success: false,
         body,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
+        headers,
       };
     }
 
@@ -38,18 +36,14 @@ exports.handler = async (event) => {
       statusCode: 200,
       success: true,
       body,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers,
     };
   } catch (error) {
     return {
       statusCode: 404,
       statusText: error.message,
       success: false,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers,
     };
   }
 };
