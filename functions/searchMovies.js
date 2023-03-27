@@ -4,7 +4,7 @@ const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/search/movie';
 exports.handler = async (event) => {
   const headers = {
     'Access-Control-Allow-Origin':
-      'https://wzrabbit.github.io/javascript-movie-review/*',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };

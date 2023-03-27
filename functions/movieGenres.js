@@ -3,8 +3,7 @@ const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/genre/movie/list';
 
 exports.handler = async (event) => {
   const headers = {
-    'Access-Control-Allow-Origin':
-      'https://wzrabbit.github.io/javascript-movie-review/*',
+    'Access-Control-Allow-Origin': '*', // 이 주소만 다른 출처더라도 허용
     'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };
