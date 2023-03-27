@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const POPULAR_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular';
 
 exports.handler = async (event) => {
-  response.headers = {
+  const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
