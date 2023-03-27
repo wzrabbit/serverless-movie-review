@@ -2,6 +2,13 @@ const fetch = require('node-fetch');
 const SEARCH_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/genre/movie/list';
 
 exports.handler = async (event) => {
+  const headers = {
+    'Access-Control-Allow-Origin':
+      'https://wzrabbit.github.io/javascript-movie-review/*',
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+
   try {
     const { queryStringParameters } = event;
     const apiKey = process.env.api_key.replace('API_KEY=', '');
@@ -24,24 +31,15 @@ exports.handler = async (event) => {
         statusCode: response.status,
         success: false,
         body,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
+        headers,
       };
     }
-
-    response.headers['Access-Control-Allow-Origin'] = '*';
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST';
-    response.headers['Access-Control-Allow-Headers'] =
-      'Content-Type, Authorization';
 
     return {
       statusCode: 200,
       success: true,
       body,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers,
     };
   } catch (error) {
     console.log('Exception!', error);
@@ -49,9 +47,7 @@ exports.handler = async (event) => {
       statusCode: 404,
       statusText: error.message,
       success: false,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers,
     };
   }
 };
