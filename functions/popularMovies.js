@@ -3,7 +3,7 @@ const POPULAR_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular';
 
 exports.handler = async (event) => {
   const headers = {
-    'Access-Control-Allow-Origin': 'https://wzrabbit.github.io',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };
